@@ -10,7 +10,7 @@ namespace SIstemaAsistencias.Datos
 {
     public class Conexion
     {
-        public static string Con = @"Data source=VICTORPC666\\SQLEXPRESS; Initial Catalog=SistemaAsistencias1; Integrated Security=true";
+        public static string Con = @"Data source=VICTORPC666\SQLEXPRESS; Initial Catalog=SistemaAsistencias1; Integrated Security=true";
         public static SqlConnection conectar = new SqlConnection(Con);
         public static void abrir()
         {

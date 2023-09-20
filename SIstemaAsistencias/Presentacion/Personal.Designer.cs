@@ -55,12 +55,12 @@
             this.pnl_registros = new System.Windows.Forms.Panel();
             this.pnl_cargos = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_guardarcambiosC = new System.Windows.Forms.Button();
+            this.btn_guardarcambios = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_sueldoG = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txt_cargoG = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_volver = new System.Windows.Forms.Button();
@@ -78,6 +78,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_nombres = new System.Windows.Forms.TextBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.dgv_listado_cargos = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -86,6 +87,7 @@
             this.pnl_cargos.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_listado_cargos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -357,6 +359,7 @@
             // pnl_registros
             // 
             this.pnl_registros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.pnl_registros.Controls.Add(this.dgv_listado_cargos);
             this.pnl_registros.Controls.Add(this.pnl_cargos);
             this.pnl_registros.Controls.Add(this.btn_volver);
             this.pnl_registros.Controls.Add(this.flowLayoutPanel1);
@@ -386,52 +389,53 @@
             // 
             this.pnl_cargos.Controls.Add(this.flowLayoutPanel2);
             this.pnl_cargos.Controls.Add(this.panel10);
-            this.pnl_cargos.Controls.Add(this.textBox5);
+            this.pnl_cargos.Controls.Add(this.txt_sueldoG);
             this.pnl_cargos.Controls.Add(this.panel11);
-            this.pnl_cargos.Controls.Add(this.textBox8);
+            this.pnl_cargos.Controls.Add(this.txt_cargoG);
             this.pnl_cargos.Controls.Add(this.label10);
             this.pnl_cargos.Controls.Add(this.label11);
-            this.pnl_cargos.Location = new System.Drawing.Point(905, 3);
+            this.pnl_cargos.Location = new System.Drawing.Point(501, 3);
             this.pnl_cargos.Name = "pnl_cargos";
             this.pnl_cargos.Size = new System.Drawing.Size(590, 216);
             this.pnl_cargos.TabIndex = 19;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button8);
-            this.flowLayoutPanel2.Controls.Add(this.button7);
+            this.flowLayoutPanel2.Controls.Add(this.btn_guardarcambiosC);
+            this.flowLayoutPanel2.Controls.Add(this.btn_guardarcambios);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(152, 148);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(353, 38);
             this.flowLayoutPanel2.TabIndex = 21;
             // 
-            // button8
+            // btn_guardarcambiosC
             // 
-            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.Location = new System.Drawing.Point(3, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(166, 29);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Guardar*";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btn_guardarcambiosC.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_guardarcambiosC.FlatAppearance.BorderSize = 0;
+            this.btn_guardarcambiosC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardarcambiosC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardarcambiosC.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_guardarcambiosC.Location = new System.Drawing.Point(3, 3);
+            this.btn_guardarcambiosC.Name = "btn_guardarcambiosC";
+            this.btn_guardarcambiosC.Size = new System.Drawing.Size(166, 29);
+            this.btn_guardarcambiosC.TabIndex = 1;
+            this.btn_guardarcambiosC.Text = "Guardar*";
+            this.btn_guardarcambiosC.UseVisualStyleBackColor = false;
+            this.btn_guardarcambiosC.Click += new System.EventHandler(this.btn_guardarcambiosC_Click);
             // 
-            // button7
+            // btn_guardarcambios
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button7.Location = new System.Drawing.Point(175, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(166, 29);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Guardar";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btn_guardarcambios.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_guardarcambios.FlatAppearance.BorderSize = 0;
+            this.btn_guardarcambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardarcambios.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardarcambios.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_guardarcambios.Location = new System.Drawing.Point(175, 3);
+            this.btn_guardarcambios.Name = "btn_guardarcambios";
+            this.btn_guardarcambios.Size = new System.Drawing.Size(166, 29);
+            this.btn_guardarcambios.TabIndex = 0;
+            this.btn_guardarcambios.Text = "Guardar";
+            this.btn_guardarcambios.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
@@ -441,16 +445,16 @@
             this.panel10.Size = new System.Drawing.Size(230, 1);
             this.panel10.TabIndex = 20;
             // 
-            // textBox5
+            // txt_sueldoG
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox5.Location = new System.Drawing.Point(264, 99);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(230, 24);
-            this.textBox5.TabIndex = 19;
+            this.txt_sueldoG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.txt_sueldoG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_sueldoG.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_sueldoG.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_sueldoG.Location = new System.Drawing.Point(264, 99);
+            this.txt_sueldoG.Name = "txt_sueldoG";
+            this.txt_sueldoG.Size = new System.Drawing.Size(230, 24);
+            this.txt_sueldoG.TabIndex = 19;
             // 
             // panel11
             // 
@@ -460,16 +464,16 @@
             this.panel11.Size = new System.Drawing.Size(233, 1);
             this.panel11.TabIndex = 18;
             // 
-            // textBox8
+            // txt_cargoG
             // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox8.Location = new System.Drawing.Point(262, 57);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(233, 24);
-            this.textBox8.TabIndex = 17;
+            this.txt_cargoG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.txt_cargoG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_cargoG.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cargoG.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_cargoG.Location = new System.Drawing.Point(262, 57);
+            this.txt_cargoG.Name = "txt_cargoG";
+            this.txt_cargoG.Size = new System.Drawing.Size(233, 24);
+            this.txt_cargoG.TabIndex = 17;
             // 
             // label10
             // 
@@ -526,6 +530,7 @@
             this.btn_guardar_personal.TabIndex = 0;
             this.btn_guardar_personal.Text = "Guardar";
             this.btn_guardar_personal.UseVisualStyleBackColor = false;
+            this.btn_guardar_personal.Click += new System.EventHandler(this.btn_guardar_personal_Click);
             // 
             // btn_guardar_cambios_personal
             // 
@@ -553,6 +558,7 @@
             this.btn_agregar_cargo.TabIndex = 16;
             this.btn_agregar_cargo.Text = "+ agregar cargo";
             this.btn_agregar_cargo.UseVisualStyleBackColor = true;
+            this.btn_agregar_cargo.Click += new System.EventHandler(this.btn_agregar_cargo_Click);
             // 
             // cmb_pais
             // 
@@ -599,6 +605,7 @@
             this.txt_cargo.Name = "txt_cargo";
             this.txt_cargo.Size = new System.Drawing.Size(233, 24);
             this.txt_cargo.TabIndex = 11;
+            this.txt_cargo.TextChanged += new System.EventHandler(this.txt_cargo_TextChanged);
             // 
             // panel6
             // 
@@ -644,6 +651,20 @@
             this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // dgv_listado_cargos
+            // 
+            this.dgv_listado_cargos.AllowUserToAddRows = false;
+            this.dgv_listado_cargos.AllowUserToDeleteRows = false;
+            this.dgv_listado_cargos.AllowUserToResizeRows = false;
+            this.dgv_listado_cargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_listado_cargos.Location = new System.Drawing.Point(266, 255);
+            this.dgv_listado_cargos.Name = "dgv_listado_cargos";
+            this.dgv_listado_cargos.RowHeadersWidth = 51;
+            this.dgv_listado_cargos.RowTemplate.Height = 24;
+            this.dgv_listado_cargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_listado_cargos.Size = new System.Drawing.Size(240, 150);
+            this.dgv_listado_cargos.TabIndex = 20;
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -667,6 +688,7 @@
             this.pnl_cargos.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_listado_cargos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -712,15 +734,16 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel pnl_cargos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_guardarcambiosC;
+        private System.Windows.Forms.Button btn_guardarcambios;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_sueldoG;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txt_cargoG;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Button btn_guardar_cambios_personal;
+        private System.Windows.Forms.DataGridView dgv_listado_cargos;
     }
 }

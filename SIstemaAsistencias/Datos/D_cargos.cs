@@ -28,7 +28,7 @@ namespace SIstemaAsistencias.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + ex + ex.StackTrace);
+                MessageBox.Show(ex.StackTrace);
                 return false;
             }
             finally
@@ -60,7 +60,7 @@ namespace SIstemaAsistencias.Datos
                 Conexion.cerrar();
             }
         }
-        public void usp_buscar_cargo(ref DataTable dt, string buscador)
+        public void usp_buscar_cargo(ref DataTable dt, string buscador) 
         {
             try
             {
