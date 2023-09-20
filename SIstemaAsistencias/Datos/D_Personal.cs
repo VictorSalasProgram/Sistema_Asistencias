@@ -86,5 +86,51 @@ namespace SIstemaAsistencias.Datos
                 Conexion.cerrar();
             }
         }
+
+        public void usp_mostrar_personal(ref DataTable dt, int desde, int hasta)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("usp_mostrar_personal", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@desde", desde);
+                da.SelectCommand.Parameters.AddWithValue("@hasta", hasta);
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void usp_buscar_personal(ref DataTable dt, int desde, int hasta, string buscador)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("usp_buscar_personal", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@desde", desde);
+                da.SelectCommand.Parameters.AddWithValue("@hasta", hasta);
+                da.SelectCommand.Parameters.AddWithValue("@buscador", buscador);
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }
