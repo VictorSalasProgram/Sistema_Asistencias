@@ -16,5 +16,39 @@ namespace SIstemaAsistencias.Logica
             listado.BackgroundColor = Color.Red;
             
         }
+        public static object Decimales(TextBox CajaTexto, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ',')
+            {
+                e.KeyChar = '.';  // Reemplazar la coma por un punto
+            }
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '.' && (~CajaTexto.Text.IndexOf(".")) != 0)
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            return null;
+        }
     }
+    
 }
+    

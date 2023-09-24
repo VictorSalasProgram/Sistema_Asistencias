@@ -116,5 +116,15 @@ namespace SIstemaAsistencias.Presentacion
         {
             insertar_cargos();
         }
+
+        private void txt_sueldoG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bases.Decimales(txt_sueldoG, e);
+        }
+
+        private void txt_sueldo_hora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bases.Decimales(txt_sueldo_hora, e);
+        }
     }
 }
