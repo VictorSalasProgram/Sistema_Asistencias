@@ -36,7 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_personal = new System.Windows.Forms.DataGridView();
             this.pnl_paginado = new System.Windows.Forms.Panel();
             this.btn_primera_pagina = new System.Windows.Forms.Button();
             this.btn_ultima_pagina = new System.Windows.Forms.Button();
@@ -46,7 +46,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,9 +80,11 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.EditarC = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_volverCargos = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
             this.pnl_paginado.SuspendLayout();
             this.pnl_registros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listado_cargos)).BeginInit();
@@ -163,26 +164,32 @@
             this.textBox1.Size = new System.Drawing.Size(355, 24);
             this.textBox1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgv_personal
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 94);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1510, 564);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_personal.AllowUserToAddRows = false;
+            this.dgv_personal.AllowUserToDeleteRows = false;
+            this.dgv_personal.AllowUserToResizeRows = false;
+            this.dgv_personal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.dgv_personal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_personal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_personal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar,
+            this.Editar});
+            this.dgv_personal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_personal.Location = new System.Drawing.Point(0, 94);
+            this.dgv_personal.Name = "dgv_personal";
+            this.dgv_personal.ReadOnly = true;
+            this.dgv_personal.RowHeadersWidth = 51;
+            this.dgv_personal.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.dgv_personal.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_personal.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_personal.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgv_personal.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_personal.RowTemplate.Height = 35;
+            this.dgv_personal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_personal.Size = new System.Drawing.Size(1510, 564);
+            this.dgv_personal.TabIndex = 1;
+            this.dgv_personal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_personal_CellClick);
             // 
             // pnl_paginado
             // 
@@ -297,17 +304,6 @@
             this.button5.Text = "Pagina Anterior";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.Location = new System.Drawing.Point(324, 182);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(355, 24);
-            this.textBox2.TabIndex = 5;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -381,9 +377,9 @@
             this.pnl_registros.Controls.Add(this.label2);
             this.pnl_registros.Controls.Add(this.label1);
             this.pnl_registros.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_registros.Location = new System.Drawing.Point(71, 142);
+            this.pnl_registros.Location = new System.Drawing.Point(91, 168);
             this.pnl_registros.Name = "pnl_registros";
-            this.pnl_registros.Size = new System.Drawing.Size(1118, 491);
+            this.pnl_registros.Size = new System.Drawing.Size(1289, 421);
             this.pnl_registros.TabIndex = 3;
             this.pnl_registros.Visible = false;
             // 
@@ -398,6 +394,7 @@
             this.EditarC});
             this.dgv_listado_cargos.Location = new System.Drawing.Point(-51, 225);
             this.dgv_listado_cargos.Name = "dgv_listado_cargos";
+            this.dgv_listado_cargos.ReadOnly = true;
             this.dgv_listado_cargos.RowHeadersWidth = 51;
             this.dgv_listado_cargos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.dgv_listado_cargos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -592,6 +589,14 @@
             // cmb_pais
             // 
             this.cmb_pais.FormattingEnabled = true;
+            this.cmb_pais.Items.AddRange(new object[] {
+            "Argentina",
+            "Bolivia",
+            "Colombia",
+            "Ecuador",
+            "Paraguay",
+            "Peru",
+            "Venezuela"});
             this.cmb_pais.Location = new System.Drawing.Point(254, 176);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(283, 31);
@@ -704,21 +709,39 @@
             this.btn_volverCargos.UseVisualStyleBackColor = false;
             this.btn_volverCargos.Click += new System.EventHandler(this.btn_volverCargos_Click);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Width = 125;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = ((System.Drawing.Image)(resources.GetObject("Editar.Image")));
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.Width = 125;
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnl_registros);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_personal);
             this.Controls.Add(this.pnl_paginado);
             this.Controls.Add(this.panel1);
             this.Name = "Personal";
             this.Size = new System.Drawing.Size(1510, 740);
+            this.Load += new System.EventHandler(this.Personal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).EndInit();
             this.pnl_paginado.ResumeLayout(false);
             this.pnl_paginado.PerformLayout();
             this.pnl_registros.ResumeLayout(false);
@@ -729,20 +752,18 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.pnl_btn_guardar.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_personal;
         private System.Windows.Forms.Panel pnl_paginado;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -786,5 +807,7 @@
         private System.Windows.Forms.DataGridView dgv_listado_cargos;
         private System.Windows.Forms.DataGridViewImageColumn EditarC;
         private System.Windows.Forms.Button btn_volverCargos;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
     }
 }

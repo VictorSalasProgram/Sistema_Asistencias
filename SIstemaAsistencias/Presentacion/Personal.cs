@@ -19,7 +19,14 @@ namespace SIstemaAsistencias.Presentacion
         {
             InitializeComponent();
         }
-        int idcargo;
+        int idcargo =0;
+        int desde = 1;
+        int hasta = 10;
+        int contador;
+        int idpersonal;
+        private int items_por_pagina = 10;
+        string estado;
+        int total_paginas;
         #region "MIS METODOS"
         private void limpiarTexto()
         {
@@ -37,8 +44,33 @@ namespace SIstemaAsistencias.Presentacion
             parametros.nombres = txt_nombres.Text;
             parametros.identificacion = txt_identificacion.Text;
             parametros.pais = cmb_pais.Text;
+            parametros.id_cargo = idcargo;
+            parametros.sueldoPorHora = Convert.ToDouble(txt_sueldo_hora.Text);
+            if (funcion.usp_insertar_personal(parametros) == true)
+            {
+                pnl_registros.Visible = false;
+                mostrarPersonal();
+            }
             
         }
+        private void mostrarPersonal()
+        {
+            DataTable dt = new DataTable();
+            D_Personal funcion = new D_Personal();
+            funcion.usp_mostrar_personal(ref dt,desde,hasta);
+            dgv_personal.DataSource = dt;
+            diseñarDgvPersonal();
+
+
+        }
+        private void diseñarDgvPersonal()
+        {
+            bases.diseñoDgv(ref dgv_personal);
+            pnl_paginado.Visible = true;
+            dgv_personal.Columns[2].Visible = false;
+            dgv_personal.Columns[7].Visible = false;
+        }
+        
         private void insertar_cargos()
         {
             if (!string.IsNullOrEmpty(txt_cargoG.Text))
@@ -98,7 +130,24 @@ namespace SIstemaAsistencias.Presentacion
 
         private void btn_guardar_personal_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txt_nombres.Text))
+            {
+                if (!string.IsNullOrEmpty(txt_identificacion.Text))
+                {
+                    if (!string.IsNullOrEmpty(cmb_pais.Text))
+                    {
+                        if(idcargo > 0)
+                        {
+                            if (!string.IsNullOrEmpty(txt_sueldo_hora.Text))
+                            {
+                                insertar_personal();
+                            }
+                        }
+                    }
 
+
+                }
+            }
         }
 
         private void txt_cargo_TextChanged(object sender, EventArgs e)
@@ -204,6 +253,72 @@ namespace SIstemaAsistencias.Presentacion
                 pnl_cargos.Visible = false;
             }
 
+        }
+
+        private void Personal_Load(object sender, EventArgs e)
+        {
+            mostrarPersonal();
+        }
+
+        private void dgv_personal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == this.dgv_personal.Columns["Eliminar"].Index)
+            {
+                DialogResult result = MessageBox.Show("¿Desea eliminar el registro?","Aviso del sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if(result == DialogResult.OK)
+                {
+                    eliminarPersonal();
+                }
+                
+            }
+            if (e.ColumnIndex == this.dgv_personal.Columns["Editar"].Index)
+            {
+                obtenerDatos();
+            }
+        }
+        private void obtenerDatos()
+        {
+            idpersonal = Convert.ToInt32(dgv_personal.SelectedCells[2].Value);
+            estado = dgv_personal.SelectedCells[8].Value.ToString();
+            if (estado == "ELIMINADO")
+            {
+                restaurarPersona();
+            }
+            else
+            {
+                txt_nombres.Text = dgv_personal.SelectedCells[3].Value.ToString();
+                txt_identificacion.Text = dgv_personal.SelectedCells[4].Value.ToString();
+                cmb_pais.Text = dgv_personal.SelectedCells[10].Value.ToString();
+                txt_cargo.Text = dgv_personal.SelectedCells[6].Value.ToString();
+                idcargo = Convert.ToInt32( dgv_personal.SelectedCells[7].Value);
+                txt_sueldo_hora.Text = dgv_personal.SelectedCells[5].Value.ToString();
+                pnl_paginado.Visible = false;
+                pnl_registros.Visible = true;
+                pnl_registros.Dock = DockStyle.Fill;
+                dgv_listado_cargos.Visible = false;
+                lbl_sueldo.Visible = true;
+                pnl_btn_guardar.Visible = true;
+                btn_guardar_personal.Visible = false;
+                btn_guardar_cambios_personal.Visible = true;
+                pnl_cargos.Visible = false;
+
+            }
+
+        }
+        private void restaurarPersona()
+        {
+
+        }
+        private void eliminarPersonal()
+        {
+            idpersonal = Convert.ToInt32(dgv_personal.SelectedCells[2].Value);
+            L_personal parametros = new L_personal();
+            D_Personal funcion = new D_Personal();
+            parametros.id_personal = idpersonal;
+            if (funcion.usp_eliminar_personal(parametros) == true)
+            {
+                mostrarPersonal();
+            }
         }
     }
 }
