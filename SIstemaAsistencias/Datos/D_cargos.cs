@@ -24,7 +24,7 @@ namespace SIstemaAsistencias.Datos
                 cmd.Parameters.AddWithValue("@sueldoPorHora", parametros.sueldoPorHora);
                 cmd.ExecuteNonQuery();
                 return true;
-
+                 
             }
             catch (Exception ex)
             {

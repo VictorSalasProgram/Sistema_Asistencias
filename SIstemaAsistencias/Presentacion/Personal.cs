@@ -19,6 +19,7 @@ namespace SIstemaAsistencias.Presentacion
         {
             InitializeComponent();
         }
+        int idcargo;
         #region "MIS METODOS"
         private void limpiarTexto()
         {
@@ -74,12 +75,16 @@ namespace SIstemaAsistencias.Presentacion
             funcion.usp_buscar_cargo(ref dt, txt_cargo.Text);
             dgv_listado_cargos.DataSource = dt;
             bases.diseñoDgv( ref dgv_listado_cargos);
+            dgv_listado_cargos.Columns[1].Visible = false;
+            dgv_listado_cargos.Columns[3].Visible = false;
+            dgv_listado_cargos.Visible = true;
 
         }
         #endregion
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
+            localizarDtvCargos();
             pnl_cargos.Visible = false;
             pnl_paginado.Visible = false;
             pnl_registros.Visible = true;
@@ -103,6 +108,7 @@ namespace SIstemaAsistencias.Presentacion
 
         private void btn_agregar_cargo_Click(object sender, EventArgs e)
         {
+            
             pnl_cargos.Visible = true;
             pnl_cargos.Dock = DockStyle.Fill;
             pnl_cargos.BringToFront();
@@ -114,7 +120,15 @@ namespace SIstemaAsistencias.Presentacion
 
         private void btn_guardarcambiosC_Click(object sender, EventArgs e)
         {
-            insertar_cargos();
+            editarCargos();
+        }
+        private void localizarDtvCargos()
+        {
+            dgv_listado_cargos.Location = new Point(txt_sueldo_hora.Location.X, txt_sueldo_hora.Location.Y);
+            dgv_listado_cargos.Size = new Size(500,150);
+            dgv_listado_cargos.Visible = true;
+            lbl_sueldo.Visible = false;
+            pnl_btn_guardar.Visible = false;
         }
 
         private void txt_sueldoG_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,6 +139,71 @@ namespace SIstemaAsistencias.Presentacion
         private void txt_sueldo_hora_KeyPress(object sender, KeyPressEventArgs e)
         {
             bases.Decimales(txt_sueldo_hora, e);
+        }
+
+        private void dgv_listado_cargos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgv_listado_cargos.Columns["EditarC"].Index)
+            {
+                obtenerCargosEditar();
+            }
+            if (e.ColumnIndex == dgv_listado_cargos.Columns["Cargo"].Index)
+            {
+                obtenerDatosCargo();
+            }
+        }
+        private void obtenerDatosCargo()
+        {
+            idcargo = Convert.ToInt32(dgv_listado_cargos.SelectedCells[1].Value);
+            txt_cargo.Text = dgv_listado_cargos.SelectedCells[2].Value.ToString();
+            txt_sueldo_hora.Text = dgv_listado_cargos.SelectedCells[3].Value.ToString();
+            dgv_listado_cargos.Visible = false;
+            pnl_btn_guardar.Visible = true;
+            lbl_sueldo.Visible = true;
+
+        }
+        private void obtenerCargosEditar()
+        {
+            idcargo = Convert.ToInt32( dgv_listado_cargos.SelectedCells[1].Value);
+            txt_cargoG.Text = dgv_listado_cargos.SelectedCells[2].Value.ToString();
+            txt_sueldoG.Text = dgv_listado_cargos.SelectedCells[3].Value.ToString();
+            btn_guardarcambios.Visible = false;
+            btn_guardarcambiosC.Visible = true;
+            txt_cargoG.Focus();
+            txt_cargoG.SelectAll();
+            pnl_cargos.Visible = true;
+            pnl_cargos.Dock= DockStyle.Fill;
+            pnl_cargos.BringToFront();
+        }
+
+        private void btn_volverCargos_Click(object sender, EventArgs e)
+        {
+            pnl_cargos.Visible = false;
+        }
+
+        private void btn_volverPersonal_Click(object sender, EventArgs e)
+        {
+            pnl_registros.Visible = false;
+        }
+
+        private void btn_guardarcambios_Click(object sender, EventArgs e)
+        {
+            insertar_cargos();
+        }
+        private void editarCargos()
+        {
+            L_cargos parametros = new L_cargos();
+            D_cargos funcion = new D_cargos();
+            parametros.id_cargo = idcargo;
+            parametros.cargo = txt_cargoG.Text;
+            parametros.sueldoPorHora = Convert.ToDouble(txt_sueldoG.Text);
+            if (funcion.usp_editar_cargo(parametros) == true)
+            {
+                txt_cargo.Clear();
+                buscar_cargos();
+                pnl_cargos.Visible = false;
+            }
+
         }
     }
 }
