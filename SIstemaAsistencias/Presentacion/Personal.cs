@@ -66,6 +66,7 @@ namespace SIstemaAsistencias.Presentacion
         private void diseñarDgvPersonal()
         {
             bases.diseñoDgv(ref dgv_personal);
+            bases.diseñoDgvEliminado(ref dgv_personal);
             pnl_paginado.Visible = true;
             dgv_personal.Columns[2].Visible = false;
             dgv_personal.Columns[7].Visible = false;
@@ -286,6 +287,7 @@ namespace SIstemaAsistencias.Presentacion
             }
             else
             {
+                localizarDtvCargos();
                 txt_nombres.Text = dgv_personal.SelectedCells[3].Value.ToString();
                 txt_identificacion.Text = dgv_personal.SelectedCells[4].Value.ToString();
                 cmb_pais.Text = dgv_personal.SelectedCells[10].Value.ToString();
@@ -307,7 +309,21 @@ namespace SIstemaAsistencias.Presentacion
         }
         private void restaurarPersona()
         {
-
+            DialogResult result = MessageBox.Show("¿Desea restaurar este personal?","Aviso del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+            if (result == DialogResult.Yes)
+            {
+                habilitarPersonal();
+            }
+        }
+        private void habilitarPersonal()
+        {
+            L_personal parametros = new L_personal();
+            D_Personal funcion = new D_Personal();
+            parametros.id_personal = idpersonal;
+            if (funcion.usp_restaurar_personal(parametros)==true)
+            {
+                mostrarPersonal();
+            }
         }
         private void eliminarPersonal()
         {
@@ -318,6 +334,33 @@ namespace SIstemaAsistencias.Presentacion
             if (funcion.usp_eliminar_personal(parametros) == true)
             {
                 mostrarPersonal();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            diseñarDgvPersonal();
+            timer1.Stop();
+        }
+
+        private void btn_guardar_cambios_personal_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void editarPersonal()
+        {
+            L_personal parametros = new L_personal();
+            D_Personal funcion = new D_Personal();
+            parametros.id_personal = idpersonal;
+            parametros.nombres = txt_nombres.Text;
+            parametros.identificacion = txt_identificacion.Text;
+            parametros.pais = cmb_pais.Text;
+            parametros.id_cargo = idcargo;
+            parametros.sueldoPorHora = Convert.ToDouble(txt_sueldo_hora.Text);
+            if (funcion.usp_editar_personal(parametros)== true) 
+            {
+                mostrarPersonal();
+                pnl_registros.Visible = false;
             }
         }
     }

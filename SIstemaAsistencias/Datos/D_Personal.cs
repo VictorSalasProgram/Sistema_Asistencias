@@ -132,5 +132,27 @@ namespace SIstemaAsistencias.Datos
                 Conexion.cerrar();
             }
         }
+        public bool usp_restaurar_personal(L_personal parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("usp_restaurar_personal", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPersonal", parametros.id_personal);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex + ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

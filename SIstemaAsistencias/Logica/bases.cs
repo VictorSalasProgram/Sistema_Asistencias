@@ -59,6 +59,21 @@ namespace SIstemaAsistencias.Logica
             }
             return null;
         }
+        public static void diseñoDgvEliminado(ref DataGridView listado)
+        {
+            foreach (DataGridViewRow row in listado.Rows)
+            {
+                string estado;
+                estado = row.Cells["estado"].Value.ToString();
+                if (estado == "ELIMINADO")
+                {
+                    row.DefaultCellStyle.Font = new Font("Consolas",10,FontStyle.Strikeout | FontStyle.Bold);
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
+            
+
+        }
     }
     
 }

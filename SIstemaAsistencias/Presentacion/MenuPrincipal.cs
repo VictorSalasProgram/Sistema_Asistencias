@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SIstemaAsistencias.Presentacion
 {
     public partial class MenuPrincipal : Form
@@ -29,5 +30,7 @@ namespace SIstemaAsistencias.Presentacion
             control.Dock = DockStyle.Fill;
             pnl_padre.Controls.Add(control);
         }
+
+       
     }
 }

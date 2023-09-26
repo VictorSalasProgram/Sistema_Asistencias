@@ -37,6 +37,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgv_personal = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnl_paginado = new System.Windows.Forms.Panel();
             this.btn_primera_pagina = new System.Windows.Forms.Button();
             this.btn_ultima_pagina = new System.Windows.Forms.Button();
@@ -53,7 +55,9 @@
             this.lbl_sueldo = new System.Windows.Forms.Label();
             this.pnl_registros = new System.Windows.Forms.Panel();
             this.dgv_listado_cargos = new System.Windows.Forms.DataGridView();
+            this.EditarC = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnl_cargos = new System.Windows.Forms.Panel();
+            this.btn_volverCargos = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_guardarcambiosC = new System.Windows.Forms.Button();
             this.btn_guardarcambios = new System.Windows.Forms.Button();
@@ -78,10 +82,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_nombres = new System.Windows.Forms.TextBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.EditarC = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btn_volverCargos = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
@@ -190,6 +191,26 @@
             this.dgv_personal.Size = new System.Drawing.Size(1510, 564);
             this.dgv_personal.TabIndex = 1;
             this.dgv_personal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_personal_CellClick);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 125;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = ((System.Drawing.Image)(resources.GetObject("Editar.Image")));
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Width = 125;
             // 
             // pnl_paginado
             // 
@@ -407,6 +428,16 @@
             this.dgv_listado_cargos.TabIndex = 20;
             this.dgv_listado_cargos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_listado_cargos_CellClick);
             // 
+            // EditarC
+            // 
+            this.EditarC.HeaderText = "";
+            this.EditarC.Image = ((System.Drawing.Image)(resources.GetObject("EditarC.Image")));
+            this.EditarC.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.EditarC.MinimumWidth = 6;
+            this.EditarC.Name = "EditarC";
+            this.EditarC.ReadOnly = true;
+            this.EditarC.Width = 125;
+            // 
             // pnl_cargos
             // 
             this.pnl_cargos.Controls.Add(this.btn_volverCargos);
@@ -421,6 +452,20 @@
             this.pnl_cargos.Name = "pnl_cargos";
             this.pnl_cargos.Size = new System.Drawing.Size(590, 216);
             this.pnl_cargos.TabIndex = 19;
+            // 
+            // btn_volverCargos
+            // 
+            this.btn_volverCargos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.btn_volverCargos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_volverCargos.BackgroundImage")));
+            this.btn_volverCargos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_volverCargos.FlatAppearance.BorderSize = 0;
+            this.btn_volverCargos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_volverCargos.Location = new System.Drawing.Point(513, 12);
+            this.btn_volverCargos.Name = "btn_volverCargos";
+            this.btn_volverCargos.Size = new System.Drawing.Size(61, 59);
+            this.btn_volverCargos.TabIndex = 22;
+            this.btn_volverCargos.UseVisualStyleBackColor = false;
+            this.btn_volverCargos.Click += new System.EventHandler(this.btn_volverCargos_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -571,6 +616,7 @@
             this.btn_guardar_cambios_personal.TabIndex = 1;
             this.btn_guardar_cambios_personal.Text = "Guardar*";
             this.btn_guardar_cambios_personal.UseVisualStyleBackColor = false;
+            this.btn_guardar_cambios_personal.Click += new System.EventHandler(this.btn_guardar_cambios_personal_Click);
             // 
             // btn_agregar_cargo
             // 
@@ -686,46 +732,10 @@
             this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // EditarC
+            // timer1
             // 
-            this.EditarC.HeaderText = "";
-            this.EditarC.Image = ((System.Drawing.Image)(resources.GetObject("EditarC.Image")));
-            this.EditarC.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.EditarC.MinimumWidth = 6;
-            this.EditarC.Name = "EditarC";
-            this.EditarC.Width = 125;
-            // 
-            // btn_volverCargos
-            // 
-            this.btn_volverCargos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.btn_volverCargos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_volverCargos.BackgroundImage")));
-            this.btn_volverCargos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_volverCargos.FlatAppearance.BorderSize = 0;
-            this.btn_volverCargos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_volverCargos.Location = new System.Drawing.Point(513, 12);
-            this.btn_volverCargos.Name = "btn_volverCargos";
-            this.btn_volverCargos.Size = new System.Drawing.Size(61, 59);
-            this.btn_volverCargos.TabIndex = 22;
-            this.btn_volverCargos.UseVisualStyleBackColor = false;
-            this.btn_volverCargos.Click += new System.EventHandler(this.btn_volverCargos_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 125;
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "";
-            this.Editar.Image = ((System.Drawing.Image)(resources.GetObject("Editar.Image")));
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            this.Editar.Width = 125;
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Personal
             // 
@@ -809,5 +819,6 @@
         private System.Windows.Forms.Button btn_volverCargos;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.Timer timer1;
     }
 }
