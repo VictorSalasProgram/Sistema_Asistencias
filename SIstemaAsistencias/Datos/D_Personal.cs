@@ -45,7 +45,7 @@ namespace SIstemaAsistencias.Datos
                 SqlCommand cmd = new SqlCommand("usp_editar_personal", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_personal", parametros.id_personal);
-                cmd.Parameters.AddWithValue("@nombre", parametros.nombres);
+                cmd.Parameters.AddWithValue("@nombres", parametros.nombres);
                 cmd.Parameters.AddWithValue("@identificacion", parametros.identificacion);
                 cmd.Parameters.AddWithValue("@pais", parametros.pais);
                 cmd.Parameters.AddWithValue("@id_cargo", parametros.id_cargo);
