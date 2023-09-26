@@ -345,7 +345,7 @@ namespace SIstemaAsistencias.Presentacion
 
         private void btn_guardar_cambios_personal_Click(object sender, EventArgs e)
         {
-
+            editarPersonal();
         }
         private void editarPersonal()
         {
