@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Personal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_mostrar_todo = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_buscador = new System.Windows.Forms.TextBox();
             this.dgv_personal = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -83,6 +83,10 @@
             this.txt_nombres = new System.Windows.Forms.TextBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
@@ -92,34 +96,36 @@
             this.pnl_cargos.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnl_btn_guardar.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.btn_agregar);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.btn_mostrar_todo);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_buscador);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1510, 94);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // btn_mostrar_todo
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.Location = new System.Drawing.Point(494, 40);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(188, 31);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Mostrar todo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_mostrar_todo.FlatAppearance.BorderSize = 0;
+            this.btn_mostrar_todo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_mostrar_todo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_mostrar_todo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_mostrar_todo.Location = new System.Drawing.Point(463, 40);
+            this.btn_mostrar_todo.Name = "btn_mostrar_todo";
+            this.btn_mostrar_todo.Size = new System.Drawing.Size(188, 31);
+            this.btn_mostrar_todo.TabIndex = 17;
+            this.btn_mostrar_todo.Text = "Mostrar todo";
+            this.btn_mostrar_todo.UseVisualStyleBackColor = true;
+            this.btn_mostrar_todo.Click += new System.EventHandler(this.button4_Click);
             // 
             // btn_agregar
             // 
@@ -129,9 +135,9 @@
             this.btn_agregar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_agregar.FlatAppearance.BorderSize = 0;
             this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Location = new System.Drawing.Point(1412, 0);
+            this.btn_agregar.Location = new System.Drawing.Point(96, 20);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(98, 94);
+            this.btn_agregar.Size = new System.Drawing.Size(87, 60);
             this.btn_agregar.TabIndex = 3;
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
@@ -154,16 +160,17 @@
             this.panel3.Size = new System.Drawing.Size(355, 2);
             this.panel3.TabIndex = 1;
             // 
-            // textBox1
+            // txt_buscador
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(24, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 24);
-            this.textBox1.TabIndex = 0;
+            this.txt_buscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.txt_buscador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_buscador.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_buscador.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_buscador.Location = new System.Drawing.Point(24, 44);
+            this.txt_buscador.Name = "txt_buscador";
+            this.txt_buscador.Size = new System.Drawing.Size(355, 24);
+            this.txt_buscador.TabIndex = 0;
+            this.txt_buscador.TextChanged += new System.EventHandler(this.txt_buscador_TextChanged);
             // 
             // dgv_personal
             // 
@@ -741,6 +748,42 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_agregar);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1306, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 94);
+            this.panel2.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(183, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(21, 94);
+            this.panel4.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(183, 20);
+            this.panel7.TabIndex = 5;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 80);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(183, 14);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -765,6 +808,7 @@
             this.pnl_cargos.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.pnl_btn_guardar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -776,7 +820,7 @@
         private System.Windows.Forms.Panel pnl_paginado;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_buscador;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -797,7 +841,7 @@
         private System.Windows.Forms.FlowLayoutPanel pnl_btn_guardar;
         private System.Windows.Forms.Button btn_guardar_personal;
         private System.Windows.Forms.Button btn_agregar_cargo;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_mostrar_todo;
         private System.Windows.Forms.Button btn_primera_pagina;
         private System.Windows.Forms.Button btn_ultima_pagina;
         private System.Windows.Forms.Label lbl_totalpag;
@@ -824,5 +868,9 @@
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel4;
     }
 }

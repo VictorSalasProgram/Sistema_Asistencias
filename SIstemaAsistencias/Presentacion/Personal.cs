@@ -132,6 +132,7 @@ namespace SIstemaAsistencias.Presentacion
 
         private void btn_guardar_personal_Click(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(txt_nombres.Text))
             {
                 if (!string.IsNullOrEmpty(txt_identificacion.Text))
@@ -235,6 +236,7 @@ namespace SIstemaAsistencias.Presentacion
         private void btn_volverPersonal_Click(object sender, EventArgs e)
         {
             pnl_registros.Visible = false;
+            pnl_paginado.Visible = true;
         }
 
         private void btn_guardarcambios_Click(object sender, EventArgs e)
@@ -469,6 +471,26 @@ namespace SIstemaAsistencias.Presentacion
         }
 
         private void btn_primera_pagina_Click(object sender, EventArgs e)
+        {
+            reiniciarPaginado();
+            mostrarPersonal();
+        }
+
+        private void txt_buscador_TextChanged(object sender, EventArgs e)
+        {
+            buscarPersonal();
+        }
+        private void buscarPersonal()
+        {   
+            DataTable dt = new DataTable(); 
+            D_Personal funcion = new D_Personal();
+            funcion.usp_buscar_personal(ref dt,desde,hasta, txt_buscador.Text);
+            dgv_personal.DataSource = dt;
+            diseñarDgvPersonal();
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             reiniciarPaginado();
             mostrarPersonal();
