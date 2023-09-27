@@ -48,6 +48,7 @@ namespace SIstemaAsistencias.Presentacion
             parametros.sueldoPorHora = Convert.ToDouble(txt_sueldo_hora.Text);
             if (funcion.usp_insertar_personal(parametros) == true)
             {
+                reiniciarPaginado();
                 pnl_registros.Visible = false;
                 mostrarPersonal();
             }
@@ -258,7 +259,30 @@ namespace SIstemaAsistencias.Presentacion
 
         private void Personal_Load(object sender, EventArgs e)
         {
+            reiniciarPaginado();
             mostrarPersonal();
+            
+        }
+        private void reiniciarPaginado()
+        {
+            desde = 1;
+            hasta = 10;
+            contar();
+            if(contador > hasta)
+            {
+                btn_sig.Visible = true;
+                btn_ant.Visible = false;
+                btn_ultima_pagina.Visible = true;
+                btn_primera_pagina.Visible = true;
+            }
+            else
+            {
+                btn_sig.Visible = false;
+                btn_ant.Visible = false;
+                btn_primera_pagina.Visible=false;
+                btn_ultima_pagina.Visible = false;
+            }
+            paginar();
         }
 
         private void dgv_personal_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -362,6 +386,92 @@ namespace SIstemaAsistencias.Presentacion
                 mostrarPersonal();
                 pnl_registros.Visible = false;
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            desde += 10;
+            hasta +=10;
+            mostrarPersonal();
+            contar();
+            if (contador > hasta)
+            {
+                btn_sig.Visible = true;
+                btn_ant.Visible = true;
+            }
+            else
+            {
+                btn_sig.Visible = false;
+                btn_ant.Visible = true;
+            }
+            paginar();
+        }
+        private void contar()
+        {
+            D_Personal funcion = new D_Personal();
+            funcion.contarPersonal(ref contador);
+        }
+        private void paginar()
+        {
+            try
+            {
+                lbl_pagina.Text = (hasta / items_por_pagina).ToString();
+                lbl_totalpag.Text = Math.Ceiling (Convert.ToSingle(contador) / items_por_pagina).ToString();
+                total_paginas = Convert.ToInt32(lbl_totalpag.Text);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btn_ant_Click(object sender, EventArgs e)
+        {
+            desde -= 10;
+            hasta -= 10;
+            mostrarPersonal();
+            contar();
+            if(contador > hasta)
+            {
+                btn_sig.Visible = true;
+                btn_ant.Visible = true;
+            }
+            else
+            {
+                btn_sig.Visible = false;
+                btn_ant.Visible = true;
+            }
+            if (desde == 1)
+            {
+                reiniciarPaginado();
+            }
+            paginar();
+        }
+
+        private void btn_ultima_pagina_Click(object sender, EventArgs e)
+        {
+            hasta = total_paginas * items_por_pagina;
+            desde = hasta - 9;
+            mostrarPersonal();
+            contar();
+            if (contador > hasta)
+            {
+                btn_sig.Visible = true;
+                btn_ant.Visible = true;
+            }
+            else
+            {
+                btn_sig.Visible = false;
+                btn_ant.Visible = true;
+            }
+            paginar();
+        }
+
+        private void btn_primera_pagina_Click(object sender, EventArgs e)
+        {
+            reiniciarPaginado();
+            mostrarPersonal();
         }
     }
 }

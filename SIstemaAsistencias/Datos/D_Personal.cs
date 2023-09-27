@@ -154,5 +154,24 @@ namespace SIstemaAsistencias.Datos
                 Conexion.cerrar();
             }
         }
+        public void contarPersonal(ref int contador)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("select COUNT(id_personal) from Personal", Conexion.conectar);
+                contador = Convert.ToInt32( cmd.ExecuteScalar());
+
+            }
+            catch (Exception)
+            {
+
+                contador =0 ;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

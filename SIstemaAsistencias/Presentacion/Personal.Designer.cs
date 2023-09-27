@@ -42,12 +42,12 @@
             this.pnl_paginado = new System.Windows.Forms.Panel();
             this.btn_primera_pagina = new System.Windows.Forms.Button();
             this.btn_ultima_pagina = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_totalpag = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_pagina = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_sig = new System.Windows.Forms.Button();
+            this.btn_ant = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -217,12 +217,12 @@
             this.pnl_paginado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.pnl_paginado.Controls.Add(this.btn_primera_pagina);
             this.pnl_paginado.Controls.Add(this.btn_ultima_pagina);
-            this.pnl_paginado.Controls.Add(this.label9);
+            this.pnl_paginado.Controls.Add(this.lbl_totalpag);
             this.pnl_paginado.Controls.Add(this.label8);
-            this.pnl_paginado.Controls.Add(this.label7);
+            this.pnl_paginado.Controls.Add(this.lbl_pagina);
             this.pnl_paginado.Controls.Add(this.label6);
-            this.pnl_paginado.Controls.Add(this.button6);
-            this.pnl_paginado.Controls.Add(this.button5);
+            this.pnl_paginado.Controls.Add(this.btn_sig);
+            this.pnl_paginado.Controls.Add(this.btn_ant);
             this.pnl_paginado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_paginado.Location = new System.Drawing.Point(0, 658);
             this.pnl_paginado.Name = "pnl_paginado";
@@ -241,6 +241,7 @@
             this.btn_primera_pagina.TabIndex = 7;
             this.btn_primera_pagina.Text = "Primera Pagina";
             this.btn_primera_pagina.UseVisualStyleBackColor = false;
+            this.btn_primera_pagina.Click += new System.EventHandler(this.btn_primera_pagina_Click);
             // 
             // btn_ultima_pagina
             // 
@@ -254,17 +255,18 @@
             this.btn_ultima_pagina.TabIndex = 6;
             this.btn_ultima_pagina.Text = "Ultima Pagina";
             this.btn_ultima_pagina.UseVisualStyleBackColor = false;
+            this.btn_ultima_pagina.Click += new System.EventHandler(this.btn_ultima_pagina_Click);
             // 
-            // label9
+            // lbl_totalpag
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(736, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(21, 23);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "0";
+            this.lbl_totalpag.AutoSize = true;
+            this.lbl_totalpag.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_totalpag.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_totalpag.Location = new System.Drawing.Point(736, 31);
+            this.lbl_totalpag.Name = "lbl_totalpag";
+            this.lbl_totalpag.Size = new System.Drawing.Size(21, 23);
+            this.lbl_totalpag.TabIndex = 5;
+            this.lbl_totalpag.Text = "0";
             // 
             // label8
             // 
@@ -277,16 +279,16 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "de";
             // 
-            // label7
+            // lbl_pagina
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(647, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 23);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "0";
+            this.lbl_pagina.AutoSize = true;
+            this.lbl_pagina.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pagina.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_pagina.Location = new System.Drawing.Point(647, 31);
+            this.lbl_pagina.Name = "lbl_pagina";
+            this.lbl_pagina.Size = new System.Drawing.Size(21, 23);
+            this.lbl_pagina.TabIndex = 3;
+            this.lbl_pagina.Text = "0";
             // 
             // label6
             // 
@@ -299,31 +301,33 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Pagina";
             // 
-            // button6
+            // btn_sig
             // 
-            this.button6.BackColor = System.Drawing.Color.Khaki;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(271, 15);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(262, 53);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Pagina Siguiente";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btn_sig.BackColor = System.Drawing.Color.Khaki;
+            this.btn_sig.FlatAppearance.BorderSize = 0;
+            this.btn_sig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sig.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sig.Location = new System.Drawing.Point(271, 15);
+            this.btn_sig.Name = "btn_sig";
+            this.btn_sig.Size = new System.Drawing.Size(262, 53);
+            this.btn_sig.TabIndex = 1;
+            this.btn_sig.Text = "Pagina Siguiente";
+            this.btn_sig.UseVisualStyleBackColor = false;
+            this.btn_sig.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // btn_ant
             // 
-            this.button5.BackColor = System.Drawing.Color.Khaki;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(3, 15);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(262, 53);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Pagina Anterior";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_ant.BackColor = System.Drawing.Color.Khaki;
+            this.btn_ant.FlatAppearance.BorderSize = 0;
+            this.btn_ant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ant.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ant.Location = new System.Drawing.Point(3, 15);
+            this.btn_ant.Name = "btn_ant";
+            this.btn_ant.Size = new System.Drawing.Size(262, 53);
+            this.btn_ant.TabIndex = 0;
+            this.btn_ant.Text = "Pagina Anterior";
+            this.btn_ant.UseVisualStyleBackColor = false;
+            this.btn_ant.Click += new System.EventHandler(this.btn_ant_Click);
             // 
             // label1
             // 
@@ -796,12 +800,12 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_primera_pagina;
         private System.Windows.Forms.Button btn_ultima_pagina;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_totalpag;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_pagina;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_sig;
+        private System.Windows.Forms.Button btn_ant;
         private System.Windows.Forms.Panel pnl_cargos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btn_guardarcambiosC;
