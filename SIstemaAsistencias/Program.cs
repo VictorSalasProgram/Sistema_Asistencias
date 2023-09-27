@@ -16,7 +16,7 @@ namespace SIstemaAsistencias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Presentacion.MenuPrincipal());
+            Application.Run(new Presentacion.TomarAsistencias());
         }
     }
 }

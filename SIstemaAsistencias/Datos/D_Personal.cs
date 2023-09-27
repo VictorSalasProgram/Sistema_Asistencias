@@ -173,5 +173,27 @@ namespace SIstemaAsistencias.Datos
                 Conexion.cerrar();
             }
         }
+        public void usp_buscar_personal_identidad(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("usp_buscar_personal_identidad", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscador", buscador);
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+      
     }
 }

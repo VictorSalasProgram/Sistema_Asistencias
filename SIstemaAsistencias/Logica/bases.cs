@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIstemaAsistencias.Logica.bases;
 
 namespace SIstemaAsistencias.Logica
 {
@@ -73,6 +74,59 @@ namespace SIstemaAsistencias.Logica
             }
             
 
+        }
+        public enum DateInterval
+        {
+            Day,
+            DayOfYear,
+            Hour,
+            Minute,
+            Month,
+            Quarter,
+            Second,
+            Weekday,
+            //WeekOfYear,
+            Year
+        }
+
+        public static long DateDiff(DateInterval intervalType, DateTime dateOne, DateTime dateTwo)
+        {
+            switch (intervalType)
+            {
+                case DateInterval.Day:
+                case DateInterval.DayOfYear:
+                    TimeSpan spanForDays = dateTwo - dateOne;
+                    return (long)spanForDays.TotalDays;
+                case DateInterval.Hour:
+                    TimeSpan spanForHours = dateTwo - dateOne;
+                    return (long)spanForHours.TotalHours;
+                case DateInterval.Minute:
+                    TimeSpan spanForMinutes = dateTwo - dateOne;
+                    return (long)spanForMinutes.TotalMinutes;
+                case DateInterval.Month:
+                    TimeSpan spanForMonths = dateTwo - dateOne;
+                    return ((dateTwo.Year - dateOne.Year) * 12) + (dateTwo.Month - dateOne.Month);
+                case DateInterval.Quarter:
+                    long dateOneQuarter = (long)Math.Ceiling(dateOne.Month / 3.0);
+                    long dateTwoQuarter = (long)Math.Ceiling(dateTwo.Month / 3.0);
+                    return (4 * (dateTwo.Year - dateOne.Year)) + dateTwoQuarter -dateOneQuarter;
+                case DateInterval.Second:
+                    TimeSpan spanForSeconds = dateTwo - dateOne;
+                    return (long)spanForSeconds.TotalSeconds;
+                case DateInterval.Weekday:
+                    TimeSpan spanForWeekdays = dateTwo - dateOne;
+                    return (long)(spanForWeekdays.TotalDays / 7.0);
+                //case DateInterval.WeekOfYear:
+                //    DateTime  dateOneModified = dateOne;
+                //    DateTime dateTwoModified = dateTwo;
+                //    while (dateOneModified.DayOfWeek != DateTimeFormatInfo.)
+
+
+                case DateInterval.Year:
+                    return  dateTwo.Year - dateOne.Year;
+                default:
+                    return 0;
+            }
         }
     }
     
