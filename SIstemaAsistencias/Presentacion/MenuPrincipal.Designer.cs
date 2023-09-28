@@ -254,6 +254,7 @@
             this.btn_usuarios.TabIndex = 3;
             this.btn_usuarios.Text = "Usuarios";
             this.btn_usuarios.UseVisualStyleBackColor = false;
+            this.btn_usuarios.Click += new System.EventHandler(this.btn_usuarios_Click);
             // 
             // panel9
             // 

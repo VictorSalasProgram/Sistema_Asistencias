@@ -31,6 +31,12 @@ namespace SIstemaAsistencias.Presentacion
             pnl_padre.Controls.Add(control);
         }
 
-       
+        private void btn_usuarios_Click(object sender, EventArgs e)
+        {
+            pnl_padre.Controls.Clear();
+            Ctr_usuarios control = new Ctr_usuarios();
+            control.Dock = DockStyle.Fill;
+            pnl_padre.Controls.Add(control);
+        }
     }
 }
