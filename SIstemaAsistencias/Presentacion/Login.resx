@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -317,7 +317,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -516,7 +516,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -715,7 +715,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -914,7 +914,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -1113,7 +1113,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -1312,7 +1312,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -1511,7 +1511,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -1710,7 +1710,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -1909,7 +1909,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button10.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_borrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -2108,7 +2108,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button11.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn0.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V
@@ -2307,7 +2307,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="button12.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnback.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAvEAAAJYCAYAAADrK7nHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         XgAAD14BBc04LQAALSJJREFUeF7t3c2yG9eZJuq8BI485twT9RUUr6CDEboBRZUtW3ZVNbvrdLe6q08V

@@ -79,5 +79,48 @@ namespace SIstemaAsistencias.Datos
             }
 
         }
+        public void verificarUsuarios(ref string indicador)
+        {
+            try
+            {
+                int id_usuario;
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("select id_usuario from Usuarios", Conexion.conectar);
+                id_usuario = Convert.ToInt32( da.ExecuteScalar());
+                indicador = "CORRECTO";
+                
+            }
+            catch (Exception e)
+            {
+                indicador = "INCORRECTO";
+                MessageBox.Show(e.StackTrace);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void validarUsuario(L_usuarios parametros, ref int id)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("validar_usuario", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@password", parametros.password);
+                cmd.Parameters.AddWithValue("@login", parametros.login);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (Exception e)
+            {
+                id = 0;
+                MessageBox.Show(e.StackTrace);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }
