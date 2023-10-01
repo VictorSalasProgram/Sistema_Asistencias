@@ -75,7 +75,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(566, 71);
+            this.label1.Size = new System.Drawing.Size(1213, 71);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sistema de Asistencias";
             // 
@@ -124,6 +124,7 @@
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.Size = new System.Drawing.Size(419, 32);
             this.txt_contraseña.TabIndex = 2;
+            this.txt_contraseña.UseSystemPasswordChar = true;
             this.txt_contraseña.TextChanged += new System.EventHandler(this.txt_buscador_TextChanged);
             // 
             // flowLayoutPanel1
@@ -149,6 +150,7 @@
             // 
             this.btn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn1.BackgroundImage")));
             this.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn1.FlatAppearance.BorderSize = 0;
             this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -167,6 +169,7 @@
             // 
             this.btn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn2.BackgroundImage")));
             this.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn2.FlatAppearance.BorderSize = 0;
             this.btn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -185,6 +188,7 @@
             // 
             this.btn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn3.BackgroundImage")));
             this.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn3.FlatAppearance.BorderSize = 0;
             this.btn3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -203,6 +207,7 @@
             // 
             this.btn4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn4.BackgroundImage")));
             this.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn4.FlatAppearance.BorderSize = 0;
             this.btn4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -221,6 +226,7 @@
             // 
             this.btn5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn5.BackgroundImage")));
             this.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn5.FlatAppearance.BorderSize = 0;
             this.btn5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -239,6 +245,7 @@
             // 
             this.btn6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn6.BackgroundImage")));
             this.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn6.FlatAppearance.BorderSize = 0;
             this.btn6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -257,6 +264,7 @@
             // 
             this.btn7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn7.BackgroundImage")));
             this.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn7.FlatAppearance.BorderSize = 0;
             this.btn7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -275,6 +283,7 @@
             // 
             this.btn8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn8.BackgroundImage")));
             this.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn8.FlatAppearance.BorderSize = 0;
             this.btn8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -293,6 +302,7 @@
             // 
             this.btn_borrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_borrar.BackgroundImage")));
             this.btn_borrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_borrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_borrar.FlatAppearance.BorderSize = 0;
             this.btn_borrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_borrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -311,6 +321,7 @@
             // 
             this.btn9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn9.BackgroundImage")));
             this.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn9.FlatAppearance.BorderSize = 0;
             this.btn9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -329,6 +340,7 @@
             // 
             this.btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn0.BackgroundImage")));
             this.btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn0.FlatAppearance.BorderSize = 0;
             this.btn0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -347,6 +359,7 @@
             // 
             this.btnback.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnback.BackgroundImage")));
             this.btnback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.FlatAppearance.BorderSize = 0;
             this.btnback.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnback.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;

@@ -39,7 +39,18 @@ namespace SIstemaAsistencias.Presentacion
             verificarConexion();
             if (indicador =="CORRECTO")
             {
-                dibujarUsuarios();
+                mostrarUsuarios();
+                if (contador==0)    
+                {
+                    Dispose();
+                    AsistenteInstalacion.UsuarioPrincipal frm = new UsuarioPrincipal();
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    dibujarUsuarios();
+                }
+                
             }
             else
             {
@@ -47,6 +58,13 @@ namespace SIstemaAsistencias.Presentacion
                 EleccionServidor frm = new EleccionServidor();
                 frm.ShowDialog();
             }
+        }
+        private void mostrarUsuarios()
+        {
+            DataTable dt = new DataTable();
+            D_usuarios funcion = new D_usuarios();
+            funcion.mostrar_usuarios(ref dt);
+            contador = dt.Rows.Count;
         }
         private void verificarConexion()
         {

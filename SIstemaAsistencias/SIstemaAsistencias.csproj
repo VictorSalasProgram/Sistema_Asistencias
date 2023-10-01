@@ -81,6 +81,12 @@
     <Compile Include="Presentacion\AsistenteInstalacion\InstalacionBaseDeDatos.Designer.cs">
       <DependentUpon>InstalacionBaseDeDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\UsuarioPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\UsuarioPrincipal.Designer.cs">
+      <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Ctr_usuarios.cs">
       <SubType>UserControl</SubType>
     </Compile>

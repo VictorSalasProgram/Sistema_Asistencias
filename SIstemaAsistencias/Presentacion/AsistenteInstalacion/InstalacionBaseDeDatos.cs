@@ -16,10 +16,23 @@ namespace SIstemaAsistencias.Presentacion.AsistenteInstalacion
         {
             InitializeComponent();
         }
-
+        string nombre_del_usuario;
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void InstalacionBaseDeDatos_Load(object sender, EventArgs e)
+        {
+           
+        }
+        private void centrarPaneles()
+        {
+            panel2.Location = new Point((Width - panel2.Width) / 2, (Height - panel2.Height) / 2);
+            nombre_del_usuario = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            Cursor = Cursors.WaitCursor;
+            panel3.Visible = false;
+            panel3.Dock = DockStyle.None;
         }
     }
 }
